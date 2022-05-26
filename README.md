@@ -6,3 +6,5 @@ basis functions and use them to solve the generalized eigenvalue problem
 used for verification in the numerical results (specifically, a half-filled
 cavity). This script also shows the coefficients for the different basis
 shown in Table II.
+
+[![DOI](https://zenodo.org/badge/463817985.svg)](https://zenodo.org/badge/latestdoi/463817985)
