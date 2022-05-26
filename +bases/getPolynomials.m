@@ -1,4 +1,4 @@
-function symPolynomials = getPolynomials(order)
+function [symPolynomials, xyz] = getPolynomials(order)
     % GETPOLYNOMIALS Gives the symbolic representation of the polynomials that
     % compose the mixed-order curl-conforming hexahedral space.
     %

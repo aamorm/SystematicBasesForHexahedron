@@ -14,18 +14,18 @@ sigmaCond = 0;
 
 %% Obtention of analytic eigenvalues.
 % Eigenvalues for the first six modes.
-k101 = getKcFromHalfFilledCavity(a, b, c, h, epr, sigmaCond, 1, 0, 300, 16);
-k102 = getKcFromHalfFilledCavity(a, b, c, h, epr, sigmaCond, 1, 0, 600, 16);
-k103 = getKcFromHalfFilledCavity(a, b, c, h, epr, sigmaCond, 1, 0, 800, 16);
-k201 = getKcFromHalfFilledCavity(a, b, c, h, epr, sigmaCond, 2, 0, 540, 16);
-k202 = getKcFromHalfFilledCavity(a, b, c, h, epr, sigmaCond, 2, 0, 760, 16);
-k301 = getKcFromHalfFilledCavity(a, b, c, h, epr, sigmaCond, 3, 0, 750, 16);
+k101 = math.getKcFromHalfFilledCavity(a, b, c, h, epr, sigmaCond, 1, 0, 300, 16);
+k102 = math.getKcFromHalfFilledCavity(a, b, c, h, epr, sigmaCond, 1, 0, 600, 16);
+k103 = math.getKcFromHalfFilledCavity(a, b, c, h, epr, sigmaCond, 1, 0, 800, 16);
+k201 = math.getKcFromHalfFilledCavity(a, b, c, h, epr, sigmaCond, 2, 0, 540, 16);
+k202 = math.getKcFromHalfFilledCavity(a, b, c, h, epr, sigmaCond, 2, 0, 760, 16);
+k301 = math.getKcFromHalfFilledCavity(a, b, c, h, epr, sigmaCond, 3, 0, 750, 16);
 numberKc = 6;
 kc = [k101 k201 k102 k301 k202 k103];
 
 %% Loading of the hexahedral meshes.
 % In this container are included the meshes used for the results.
-load('meshesHalfFilledTAP2021.mat','projectMeshes');
+load('+settings/meshesHalfFilledTAP2021.mat','projectMeshes');
 lengthMeshes = length(projectMeshes);
 % Container to store the error for the different eigenvalues.
 errorHalfConvergence = zeros(numberKc,lengthMeshes);
@@ -45,9 +45,6 @@ sysBasesObj.getCoefficients();
 % We store the coefficients for using them later.
 disp("Storing the coefficients generated...")
 sysBasesObj.saveCoefficients();
-disp("Showing the coefficients of the polynomials...")
-bases.showPolynomials();
-sysBasesObj.showBases();
 
 %% Running through all the meshes.
 for indexMesh = 1:length(projectMeshes)
@@ -75,4 +72,4 @@ for indexMesh = 1:length(projectMeshes)
 end
 
 %% Plotting the results.
-plotHalfFilledCavity(errorHalfConvergence,lengthHalfConvergence);
+math.plotHalfFilledCavity(errorHalfConvergence,lengthHalfConvergence);
